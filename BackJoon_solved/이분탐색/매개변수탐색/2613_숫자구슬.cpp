@@ -59,15 +59,17 @@ int main(void) {
     int i = 1;
     for (; i < n; ++i) {
 
-        // 해당 계산은 일단 i는 그룹핑 계속 된다는 가정
+        // 해당 계산은 일단 i는 계속 이전 원소와 함께 그룹핑 한다고 가정을 함
         sum += arr[i];
         ++cnt;
 
+        // 만약 sum 한 결과가 한계치를 넘어서면 이를 서로 때는 작업
         if (sum > midPoint) {
             cout << cnt - 1 <<' ';
             cnt = 1;
             sum = arr[i];
             ++groupCount;
+            // 이때 때는 작업 결과 남는 원소들 각각 한개씩으로만 해야 딱 k개가 남는 경우
             if ( k - groupCount == n - i - 1) {
                 break;
             }
