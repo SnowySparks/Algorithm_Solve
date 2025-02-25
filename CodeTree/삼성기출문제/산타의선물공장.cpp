@@ -18,7 +18,7 @@ void unite(int from, int to) {
     to = findp(to);
     p[from] = to;
 }
-
+// 노드정의
 struct Node { // box : id, 무게, 원래 벨트 위치
     int id, w, belt;
     Node *prev = nullptr;
@@ -29,10 +29,12 @@ struct Node { // box : id, 무게, 원래 벨트 위치
         next = nullptr;
     }
 };
+// 죄우연결
 void connectNode(Node *l, Node *r) {
     l->next = r;
     r->prev = l;
 }
+// 좌, 중간, 우 연결
 void connectBetween(Node *l, Node *mid, Node *r) {
     connectNode(l, mid);
     connectNode(mid, r);
